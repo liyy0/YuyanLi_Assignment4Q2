@@ -1,9 +1,11 @@
 package com.example.yuyanli_assignment4q2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.moshi.Moshi
@@ -30,7 +32,14 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView: RecyclerView = findViewById(R.id.news_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ListAdapter(articlesList)
+        recyclerView.adapter = ListAdapter(articlesList) {
+            Toast.makeText(this, "Clicked on ${it.title}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, detail_page::class.java)
+            intent.putExtra("title", it.title)
+            intent.putExtra("content", it.content)
+            intent.putExtra("url", it.url)
+            startActivity(intent)
+        }
     }
 
 
