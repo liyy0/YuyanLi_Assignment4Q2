@@ -7,11 +7,38 @@
     tools:context=".MainActivity">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- First Button -->
+        <Button
+            android:id="@+id/button_bitcoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bitcoin"
+            android:layout_weight="1" />
+
+        <!-- Second Button -->
+        <Button
+            android:id="@+id/button_apples"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="apple"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/news_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"/>
 
 
 </RelativeLayout>
+
+
